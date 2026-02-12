@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: "IBM Plex Mono";
+    background: #080808;
+    width: 1280px;
+    height: 700px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    opacity: 1;
+    overflow: hidden;
+}
+
+.navigation {
+    position: absolute;
+    left: 85px;
+    width: 1110px;
+    height: 70px;
+    background-image: url("./images/boxy1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #1a1a1a;
+    font-family: "IBM Plex Mono";
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #cccccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    opacity: 1;
+    border: 1px solid #333;
+}
+
+.navigation ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin: 0 auto;
+    padding: 0 12px;
+    list-style-type: none;
+    color: #cccccc;
+    max-width: 1100px;
+}
+
+.navigation li {
+    display: inline-flex;
+    align-items: center;
+}
+
+.navigation a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: inherit;
+    text-decoration: none;
+    padding: 6px 8px;
+}
+
+.navigation a:hover { opacity: 0.9; }
+
+.poppa {
+    width: 107.54px;
+    height: 17px;
+    margin-top: 26px;
+}
+
+.navigation li img {
+    width: 18px;
+    height: 18px;
+    margin: 0 8px;
+    vertical-align: middle;
+    opacity: 0.7;
+}
+
+.intro-card {
+    position: absolute;
+    top: 201px;
+    left: 180px;
+    width: 538px;
+    height: 247px;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.card {
+    position: relative;
+    background: #1a1a1a;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    border: 1px solid #333;
+}
+
+.card img {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    bottom: -25px;
+    left: 555px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 6px 12px rgba(13,20,28,0.06);
+    opacity: 1;
+    transform: none;
+}
+
+.card-body h1 {
+    font-size: 1.25rem;
+    margin: 0 0 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.card-body p {
+    margin: 0 0 16px;
+    color: #cccccc;
+    font-size: 0.95rem;
+}
+
+.info-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* left-align text */
+    gap: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.info-box h1 {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 44px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: bottom;
+    color: #ffffff;
+}
+
+.info-box p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #cccccc;
+}
+
+.info-box span {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #3F8E00;
+    font-weight: 500;
+}
+
+.toggle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 200px;
+    height: 45px;
+    box-sizing: border-box;
+    padding: 12px 24px;
+    background: #3F8E00;
+    color: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #62BA1B;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    opacity: 1;
+    transform: none;
+    line-height: 1.2;
+    box-shadow: 0px 8px 30px 0px #3F8E0080;
+}
+
+.toggle:hover { opacity: 0.95; }
+
+@media (max-width: 600px) {
+    .card {
+        width: 92%;
+        padding: 18px;
+    }
+    .card img { width: 110px; height: 110px; }
+    .navigation ul { gap: 12px; flex-wrap: wrap; }
+    .card-body h1 { font-size: 1.05rem; }
+    .card-body p { font-size: 0.9rem; }
+}
+
+
+.bottom {
+    position: absolute;
+    top: 595px;
+    left: 180px;
+    width: 920px;
+    height: 60px;
+    opacity: 1;
+    background-image: url("./images/boxy1.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.bottom-nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+    margin: 0 auto;
+    padding: 0 20px;
+    list-style-type: none;
+    color: #cccccc;
+    max-width: 920px;
+    width: 100%;
+}
+
+.bottom-nav li {
+    display: inline-flex;
+    align-items: center;
+}
+
+.bottom-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: inherit;
+    text-decoration: none;
+    padding: 4px 6px;
+    font-size: 13px;
+}
+
+.bottom-nav li img {
+    width: 16px;
+    height: 16px;
+    margin: 0 6px;
+    vertical-align: middle;
+    opacity: 0.7;
+}
+
+.bottom-nav .logo {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    opacity: 1;
+    object-fit: contain;
+    border-radius: 4px;
+}
