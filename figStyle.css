@@ -1,8 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+:root {
+    --color-bg: #080808;
+    --color-surface: #1a1a1a;
+    --color-border: #333;
+    --color-text: #cccccc;
+    --color-white: #ffffff;
+    --color-accent: #3F8E00;
+    --color-accent-border: #62BA1B;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: "IBM Plex Mono";
-    background: #080808;
+    font-family: "IBM Plex Mono", monospace;
+    background: var(--color-bg);
     width: 1280px;
     height: 700px;
     margin: 0;
@@ -20,12 +36,11 @@ body {
     background-image: url("./images/boxy1.png");
     background-repeat: no-repeat;
     background-size: contain;
-    background-color: #1a1a1a;
-    font-family: "IBM Plex Mono";
+    background-color: var(--color-surface);
     font-weight: 400;
     font-size: 14px;
     letter-spacing: 1px;
-    color: #cccccc;
+    color: var(--color-text);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +48,7 @@ body {
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
     opacity: 1;
-    border: 1px solid #333;
+    border: 1px solid var(--color-border);
 }
 
 .navigation ul {
@@ -44,7 +59,7 @@ body {
     margin: 0 auto;
     padding: 0 12px;
     list-style-type: none;
-    color: #cccccc;
+    color: var(--color-text);
     max-width: 1100px;
 }
 
@@ -63,12 +78,6 @@ body {
 }
 
 .navigation a:hover { opacity: 0.9; }
-
-.poppa {
-    width: 107.54px;
-    height: 17px;
-    margin-top: 26px;
-}
 
 .navigation li img {
     width: 18px;
@@ -93,7 +102,7 @@ body {
 
 .card {
     position: relative;
-    background: #1a1a1a;
+    background: var(--color-surface);
     border-radius: 12px;
     padding: 16px 20px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
@@ -103,7 +112,7 @@ body {
     flex-direction: row;
     align-items: center;
     gap: 30px;
-    border: 1px solid #333;
+    border: 1px solid var(--color-border);
 }
 
 .card img {
@@ -125,12 +134,12 @@ body {
     margin: 0 0 8px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--color-white);
 }
 
 .card-body p {
     margin: 0 0 16px;
-    color: #cccccc;
+    color: var(--color-text);
     font-size: 0.95rem;
 }
 
@@ -138,13 +147,13 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background: #1a1a1a;
+    background: var(--color-surface);
     border: none;
     border-radius: 8px;
     padding: 12px 16px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* left-align text */
+    align-items: flex-start;
     gap: 8px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
@@ -158,19 +167,19 @@ body {
     line-height: 100%;
     letter-spacing: 0%;
     vertical-align: bottom;
-    color: #ffffff;
+    color: var(--color-white);
 }
 
 .info-box p {
     margin: 0;
     font-size: 0.95rem;
-    color: #cccccc;
+    color: var(--color-text);
 }
 
 .info-box span {
     margin: 0;
     font-size: 0.95rem;
-    color: #3F8E00;
+    color: var(--color-accent);
     font-weight: 500;
 }
 
@@ -186,10 +195,10 @@ body {
     height: 45px;
     box-sizing: border-box;
     padding: 12px 24px;
-    background: #3F8E00;
-    color: #ffffff;
+    background: var(--color-accent);
+    color: var(--color-white);
     border-radius: 4px;
-    border: 1px solid #62BA1B;
+    border: 1px solid var(--color-accent-border);
     cursor: pointer;
     font-weight: 600;
     font-size: 14px;
@@ -201,15 +210,159 @@ body {
 
 .toggle:hover { opacity: 0.95; }
 
-@media (max-width: 600px) {
-    .card {
-        width: 92%;
-        padding: 18px;
+.navigation a:focus-visible,
+.bottom-nav a:focus-visible,
+.toggle:focus-visible {
+    outline: 2px solid var(--color-accent-border);
+    outline-offset: 2px;
+}
+
+@media (max-width: 1200px) {
+    body {
+        width: 100%;
+        min-height: 700px;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
-    .card img { width: 110px; height: 110px; }
-    .navigation ul { gap: 12px; flex-wrap: wrap; }
-    .card-body h1 { font-size: 1.05rem; }
-    .card-body p { font-size: 0.9rem; }
+
+    .navigation {
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(1110px, calc(100% - 32px));
+    }
+
+    .navigation ul {
+        gap: clamp(12px, 2.5vw, 28px);
+        padding: 0 16px;
+    }
+
+    .intro-card {
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(538px, calc(100% - 40px));
+    }
+
+    .card img {
+        width: clamp(220px, 30vw, 320px);
+        height: clamp(220px, 30vw, 320px);
+        left: calc(100% - 40px);
+        bottom: -20px;
+    }
+
+    .bottom {
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(920px, calc(100% - 40px));
+    }
+}
+
+@media (max-width: 820px) {
+    body {
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .navigation {
+        position: relative;
+        left: auto;
+        top: 0;
+        transform: none;
+        width: calc(100% - 20px);
+        margin: 0 auto;
+        height: auto;
+        min-height: 70px;
+        padding: 10px 0;
+        background-size: cover;
+    }
+
+    .navigation ul {
+        flex-wrap: wrap;
+        gap: 10px 14px;
+        justify-content: center;
+        padding: 0 12px;
+    }
+
+    main {
+        padding-top: 28px;
+    }
+
+    .intro-card {
+        position: relative;
+        top: 0;
+        left: auto;
+        transform: none;
+        width: calc(100% - 20px);
+        max-width: 560px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .card {
+        height: auto;
+        min-height: 0;
+        padding: 16px;
+        gap: 16px;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .card img {
+        position: static;
+        width: 180px;
+        height: 180px;
+        margin: 0 auto;
+    }
+
+    .card-body {
+        width: 100%;
+    }
+
+    .info-box {
+        position: static;
+        width: 100%;
+        padding: 12px;
+    }
+
+    .info-box h1 {
+        font-size: clamp(32px, 8vw, 44px);
+    }
+
+    .toggle {
+        position: static;
+        width: 100%;
+        margin-top: 6px;
+    }
+
+    .bottom {
+        position: relative;
+        top: 0;
+        left: auto;
+        transform: none;
+        width: calc(100% - 20px);
+        margin: 20px auto 16px;
+    }
+
+    .bottom-nav ul {
+        padding: 0 10px;
+        gap: 8px;
+    }
+
+    .bottom-nav .logo {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navigation {
+        font-size: 12px;
+    }
+
+    .info-box p,
+    .info-box span {
+        font-size: 0.9rem;
+    }
 }
 
 
@@ -223,12 +376,12 @@ body {
     background-image: url("./images/boxy1.png");
     background-repeat: no-repeat;
     background-size: contain;
-    background-color: #1a1a1a;
+    background-color: var(--color-surface);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0;
-    border: 1px solid #333;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
 }
 
@@ -240,7 +393,7 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     list-style-type: none;
-    color: #cccccc;
+    color: var(--color-text);
     max-width: 920px;
     width: 100%;
 }
@@ -275,4 +428,170 @@ body {
     opacity: 1;
     object-fit: contain;
     border-radius: 4px;
+}
+
+@media (max-width: 1200px) {
+    .bottom {
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(920px, calc(100% - 40px));
+    }
+}
+
+@media (max-width: 820px) {
+    .bottom {
+        position: relative;
+        top: 0;
+        left: auto;
+        transform: none;
+        width: calc(100% - 20px);
+        margin: 20px auto 16px;
+    }
+
+    .bottom-nav ul {
+        padding: 0 10px;
+        gap: 8px;
+    }
+
+    .bottom-nav .logo {
+        width: 34px;
+        height: 34px;
+    }
+}
+
+@media (max-width: 420px) {
+    .navigation {
+        width: calc(100% - 16px);
+        padding: 8px 0;
+    }
+
+    .navigation ul {
+        gap: 8px 10px;
+        padding: 0 8px;
+    }
+
+    .navigation a {
+        padding: 4px 6px;
+        font-size: 12px;
+    }
+
+    .intro-card {
+        width: calc(100% - 16px);
+        margin-top: 4px;
+    }
+
+    .card {
+        padding: 14px;
+    }
+
+    .card img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .info-box {
+        padding: 10px;
+    }
+
+    .info-box h1 {
+        font-size: 34px;
+    }
+
+    .info-box p,
+    .info-box span {
+        font-size: 0.88rem;
+    }
+
+    .toggle {
+        height: 42px;
+        font-size: 13px;
+    }
+
+    .bottom {
+        width: calc(100% - 16px);
+        height: 56px;
+        margin: 16px auto 14px;
+    }
+
+    .bottom-nav ul {
+        padding: 0 8px;
+    }
+
+    .bottom-nav .logo {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 393px) {
+    .navigation {
+        width: calc(100% - 12px);
+        min-height: 64px;
+        padding: 6px 0;
+    }
+
+    .navigation ul {
+        gap: 6px 8px;
+        padding: 0 6px;
+    }
+
+    .navigation a {
+        padding: 3px 5px;
+        font-size: 11px;
+    }
+
+    .navigation li img {
+        width: 16px;
+        height: 16px;
+        margin: 0 4px;
+    }
+
+    main {
+        padding-top: 22px;
+    }
+
+    .intro-card {
+        width: calc(100% - 12px);
+    }
+
+    .card {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .card img {
+        width: 142px;
+        height: 142px;
+    }
+
+    .info-box h1 {
+        font-size: 31px;
+    }
+
+    .info-box p,
+    .info-box span {
+        font-size: 0.84rem;
+    }
+
+    .toggle {
+        height: 40px;
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .bottom {
+        width: calc(100% - 12px);
+        height: 54px;
+        margin: 14px auto 12px;
+    }
+
+    .bottom-nav ul {
+        padding: 0 6px;
+        gap: 6px;
+    }
+
+    .bottom-nav .logo {
+        width: 30px;
+        height: 30px;
+    }
 }
